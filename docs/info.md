@@ -1,20 +1,13 @@
-<!---
+# How it works
 
-This file is used to generate your project datasheet. Please fill in the information below and delete any unused
-sections.
+This project implements the required digital logic circuit using Verilog. The circuit processes the input signals and generates outputs according to the designed functionality.
 
-You can also include images in this folder and reference them in the markdown. Each image must be less than
-512 kb in size, and the combined size of all images must be less than 1 MB.
--->
+# How to test
 
-## How it works
+1. Apply input values using the Tiny Tapeout input pins.
+2. Observe the output pins.
+3. Verify that the outputs match the expected behaviour of the circuit.
 
-Explain how your project works
+# External hardware
 
-## How to test
-
-Explain how to use your project
-
-## External hardware
-
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+No external hardware required.
