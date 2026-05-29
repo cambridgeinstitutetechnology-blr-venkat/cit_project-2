@@ -8,9 +8,7 @@ from cocotb.triggers import ClockCycles
 
 @cocotb.test()
 async def test_project(dut):
-    dut._log.info("Start WNN test")
 
-    # Clock
     clock = Clock(dut.clk, 10, unit="us")
     cocotb.start_soon(clock.start())
 
@@ -22,16 +20,14 @@ async def test_project(dut):
     await ClockCycles(dut.clk, 2)
     dut.rst_n.value = 1
 
-    # Test 1: Matching pattern
+    # Matching pattern test
     dut.ui_in.value = 0b10101010
     await ClockCycles(dut.clk, 1)
 
-    # uo_out[0] should be 1
-    assert (dut.uo_out.value & 1) == 1
+    assert int(dut.uo_out.value) & 1 == 1
 
-    # Test 2: Non-matching pattern
+    # Non-matching pattern test
     dut.ui_in.value = 0b11110000
     await ClockCycles(dut.clk, 1)
 
-    # uo_out[0] should be 0
-    assert (dut.uo_out.value & 1) == 0
+    assert int(dut.uo_out.value) & 1 == 0
